@@ -52,10 +52,19 @@ Written against a real-time audio callback, where there is no garbage collector 
 arithmetic has to be right. Here because it is the clearest evidence I can work far below
 the framework layer when a problem requires it.
 
-**Internal tooling at a music production house**
-Talent-intake portal and operations workstation now used daily: React frontend, Netlify
-Functions, and Google Apps Script automation across a 100+ column tracking schema,
-replacing an email-and-spreadsheet process with one reviewable pipeline.
+**Internal tooling at a music production house** · built with their engineering team
+Hired into a production role, I audited the company's operational infrastructure and
+rebuilt artist intake end to end. The old funnel was an unbranded Google Form that
+prospects mistrusted, so I replaced it with a branded portal carrying per-team-member
+attribution links, meaning every submission traces back to whoever sourced it. Behind it,
+a Google Apps Script pipeline: submissions land in a shared work pool, a reviewer claims
+an artist, the record moves into audit for grading against genre-specific rubrics, and
+completed records export straight into the main database instead of being copy-pasted
+between sheets.
+
+I worked **inside their existing codebase alongside their developer** to extend the
+internal operations workstation the team now runs on daily. The interesting part was not
+the code, it was mapping how the team actually worked before deciding what to automate.
 
 ---
 
