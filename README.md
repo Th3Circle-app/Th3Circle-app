@@ -84,8 +84,8 @@ the code, it was mapping how the team actually worked before deciding what to au
 ### How I work
 
 Generated code is a draft. The schema, the trust boundary, the failure modes, and the
-question of whether a thing should exist at all are mine, and I can walk through any line
-of these repos and tell you why it is there.
+question of whether a thing should exist at all are mine. Ask me about any decision in
+these repos and I will tell you what the alternatives were and why I ruled them out.
 
 One example of the judgment part. My mood classifier once labeled an artist's
 self-discovery song "romantic." Defensible from the audio, completely wrong for how he
