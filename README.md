@@ -15,6 +15,11 @@ Portfolio: **[xkaii.studio/work](https://xkaii.studio/work)** · Live product: *
 
 ### Two security decisions I would ask me about
 
+Both are extracted, runnable, and tested in
+**[tenant-isolation-postgres](https://github.com/Th3Circle-app/tenant-isolation-postgres)**:
+15 integration tests that execute each attack against real Postgres and assert it fails.
+
+
 **Row-level security gates rows, not columns.**
 On [th3circle.app](https://th3circle.app) I found that a tenant could read rows correctly
 and still write to columns they had no business touching, which is a privilege-escalation
