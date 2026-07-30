@@ -57,6 +57,14 @@ Written against a real-time audio callback, where there is no garbage collector 
 arithmetic has to be right. Here because it is the clearest evidence I can work far below
 the framework layer when a problem requires it.
 
+**[talent-finder](https://github.com/Th3Circle-app/talent-finder)** · [live tool](https://th3circle-app.github.io/talent-finder/) · vanilla JS, zero dependencies
+Built from a problem I lived doing A&R: leads pile up in a spreadsheet that cannot play a
+track or remember who you already vetted. Import a CSV and it becomes a working surface,
+with real Spotify, YouTube, Apple Music and SoundCloud players opening inline in each card.
+One HTML file, no build step, runs offline by double-clicking, nothing leaves the browser.
+The parsing and link-detection core is factored out into a module with a `node:test` suite
+that runs in CI on every push.
+
 **Internal tooling at a music production house** · built with their engineering team
 Hired into a production role, I audited the company's operational infrastructure and
 rebuilt artist intake end to end. The old funnel was an unbranded Google Form that
