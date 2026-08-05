@@ -64,6 +64,14 @@ your billing logic is enforceable from devtools, you do not have billing logic.
 
 ### What I have shipped
 
+**[redteam-loop](https://github.com/Th3Circle-app/redteam-loop)** · Node, OWASP, Claude
+An automated red-team loop: it fires OWASP-classified attacks at a running service, triages
+what lands, has Claude propose a minimal patch, and then **verifies the patch actually
+closes the hole** by re-running the exact attack against the patched code before a human
+sees it. The machine detects, classifies, proposes, and verifies; a person merges. The
+generalized version of the security testing on th3circle.app — the honest AI DevSecOps loop,
+not the "autonomously patches prod" fantasy no serious team would run.
+
 **[th3circle.app](https://th3circle.app)** · live production
 Multi-creator subscription platform. Stripe checkout, subscriptions, Connect payouts, and
 webhook-driven fulfillment on Node serverless functions, over a Postgres schema on
