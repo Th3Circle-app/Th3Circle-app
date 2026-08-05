@@ -15,6 +15,47 @@ Portfolio: **[xkaii.studio/work](https://xkaii.studio/work)** · Live product: *
 
 ---
 
+## 🛡️ Continuous Security & Automated Penetration Testing
+
+My live platform ships with a real DevSecOps pipeline, not a linter and a
+promise. Every push runs the test suite — **~1,800 lines of security tests, a
+578-line pentest suite among them** — in GitHub Actions, and a weekly job adds a
+deep scan: **CodeQL SAST, Semgrep, an SBOM, and a dependency audit**. A failing
+tenant-isolation test fails the build, so a breached tenant boundary cannot merge.
+
+**Automated exploit & verification suite** — every test performs the attack and
+asserts the system refuses it:
+
+- **Identity & access control** — multi-tenant isolation via PostgreSQL
+  row-level security, with strict tenant scoping and locked-down admin audit logs
+  (zero-trust multi-tenant isolation).
+- **Token & request integrity** — active token-tampering and sender-spoofing
+  payloads, verifying forged identities are dropped (BOLA mitigation).
+- **Injection & input validation** — regression loops against path traversal,
+  SQL injection, null-byte bypass, and CORS misconfiguration (DAST).
+- **Active defense** — progressive lockout and rate limiting execute under
+  attack, and auth failures emit structured **SIEM** events (Splunk/Datadog-shaped
+  telemetry).
+
+**Runnable proof, not just claims.** The security layer is extracted, public, and
+attack-tested in CI:
+
+- **[tenant-isolation-postgres](https://github.com/Th3Circle-app/tenant-isolation-postgres)**
+  — 16 attacks against real Postgres in Docker, `npm run verify`, green on every push.
+- **[redteam-loop](https://github.com/Th3Circle-app/redteam-loop)** — an automated
+  detect → classify → patch → **verify** loop: it fires OWASP-classified attacks at
+  a running service, has Claude propose a minimal fix, re-runs the exact attack
+  against the patched code to confirm it closes, and opens an issue a human merges.
+  `npm run demo` shows it in one command.
+- **[th3circle-architecture](https://github.com/Th3Circle-app/th3circle-architecture)**
+  — the full system design and OWASP-mapped security model.
+
+> I don't just write code. I design systems that actively defend themselves, log
+> their own attacks to a SIEM framework, and fail the build if a tenant boundary
+> is breached.
+
+---
+
 ### Security work, mapped to OWASP
 
 | OWASP 2021 | Attack executed in a test | Where |
