@@ -1,15 +1,41 @@
 ## Harrison C. Songolo
 
-**Backend engineer specializing in multi-tenant SaaS: PostgreSQL, row-level security, and Stripe billing.**
+**Backend and application-security engineer. I build multi-tenant SaaS on PostgreSQL, then attack it.**
 
-I build and operate the parts that break at 2am. Authentication, tenant isolation,
-subscription webhooks, and the database rules that stop a client from granting itself a
-plan. Two production platforms, both mine end to end, plus native C++ audio work when a
-problem needs it.
+Authentication, tenant isolation, subscription webhooks, and the database rules that stop a
+client from granting itself a plan. Every control I claim has a test that executes the
+exploit and asserts it fails — and I check those tests by deleting the control and watching
+them catch it. Two production platforms, both mine end to end, plus native C++ audio work
+when a problem needs it.
 
 TypeScript · Python · Node · SQL · PostgreSQL · Supabase · Stripe · FastAPI · React
+OWASP Top 10 · row-level security · threat modeling · adversarial test suites · SIEM events
 
 Portfolio: **[xkaii.studio/work](https://xkaii.studio/work)** · Live product: **[th3circle.app](https://th3circle.app)**
+
+---
+
+### Security work, mapped to OWASP
+
+| OWASP 2021 | Attack executed in a test | Where |
+|---|---|---|
+| **A01** Broken Access Control | Cross-tenant read, write, delete; self-granted admin; tenant reassignment; cross-creator file upload; path traversal; null-byte injection | tenant-isolation · production suite |
+| **A02** Cryptographic Failures | Tampered tracking token; token replay across keys | production suite |
+| **A03** Injection | Shadow a table in `pg_temp` so a `security definer` function reads the attacker's row | tenant-isolation |
+| **A04** Insecure Design | Bypass the free-tier limit by calling the API instead of the UI; defeat progressive lockout | both |
+| **A05** Security Misconfiguration | Disable the protection trigger from an ordinary session; CORS from an unknown origin; localhost accepted in production | both |
+| **A07** Auth Failures | Missing and forged tokens; tampered OAuth state; spoofed session fingerprint | production suite |
+| **A08** Data Integrity Failures | Replay a Stripe webhook to double-apply an upgrade; client-supplied `from` header spoofing | both |
+| **A09** Logging Failures | Assert auth failures and rate-limit violations emit structured SIEM events | production suite |
+
+**tenant-isolation** is
+[public and runnable](https://github.com/Th3Circle-app/tenant-isolation-postgres) — 16
+integration tests against real Postgres in Docker, `npm run verify`. The **production
+suite** is the closed-source pentest layer on [th3circle.app](https://th3circle.app): 30+
+adversarial cases across auth, upload, CORS, rate limiting, crypto and audit logging,
+running in CI on every push.
+
+I test the tests. Removing a control has to turn a suite red, or the suite was decorating.
 
 ---
 
@@ -17,7 +43,7 @@ Portfolio: **[xkaii.studio/work](https://xkaii.studio/work)** · Live product: *
 
 Both are extracted, runnable, and tested in
 **[tenant-isolation-postgres](https://github.com/Th3Circle-app/tenant-isolation-postgres)**:
-15 integration tests that execute each attack against real Postgres and assert it fails.
+16 integration tests that execute each attack against real Postgres and assert it fails.
 
 
 **Row-level security gates rows, not columns.**
