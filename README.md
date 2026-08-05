@@ -9,7 +9,7 @@ them catch it. Two production platforms, both mine end to end, plus native C++ a
 when a problem needs it.
 
 TypeScript · Python · Node · SQL · PostgreSQL · Supabase · Stripe · FastAPI · React
-OWASP Top 10 · row-level security · threat modeling · adversarial test suites · SIEM events
+OWASP Top 10 · DAST · BOLA mitigation · zero-trust multi-tenant isolation · row-level security · brute-force / rate-limiting · SIEM telemetry · threat modeling · adversarial test suites · DevSecOps / AppSec
 
 Portfolio: **[xkaii.studio/work](https://xkaii.studio/work)** · Live product: **[th3circle.app](https://th3circle.app)**
 
