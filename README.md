@@ -72,11 +72,13 @@ sees it. The machine detects, classifies, proposes, and verifies; a person merge
 generalized version of the security testing on th3circle.app — the honest AI DevSecOps loop,
 not the "autonomously patches prod" fantasy no serious team would run.
 
-**[th3circle.app](https://th3circle.app)** · live production
+**[th3circle.app](https://th3circle.app)** · live production · [architecture writeup](https://github.com/Th3Circle-app/th3circle-architecture)
 Multi-creator subscription platform. Stripe checkout, subscriptions, Connect payouts, and
 webhook-driven fulfillment on Node serverless functions, over a Postgres schema on
 row-level security. Passwordless OTP auth, a Twilio SMS broadcast system, cron-scheduled
 email sequences with paced bulk sending, and a PWA with silent service-worker updates.
+The full system design — request flow, component map, and the OWASP-mapped security model
+— is documented in [th3circle-architecture](https://github.com/Th3Circle-app/th3circle-architecture).
 
 **[rollout](https://github.com/Th3Circle-app/rollout)** · React 19, TypeScript, FastAPI, Postgres
 Multi-tenant release platform with Stripe subscriptions and database-enforced plan gating.
