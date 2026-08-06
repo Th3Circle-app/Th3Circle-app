@@ -49,6 +49,11 @@ attack-tested in CI:
   `npm run demo` shows it in one command.
 - **[th3circle-architecture](https://github.com/Th3Circle-app/th3circle-architecture)**
   — the full system design and OWASP-mapped security model.
+- **[security-assessments](https://github.com/Th3Circle-app/security-assessments)** —
+  the same loop pointed at *other people's* open-source apps: one confirmed SSRF
+  (CWE-918) found, fixed, and verified against a running instance and disclosed
+  privately, plus three documented non-findings that show where I decided a thing
+  *wasn't* a bug and why. AI-assisted, human-verified.
 
 > I don't just write code. I design systems that actively defend themselves, log
 > their own attacks to a SIEM framework, and fail the build if a tenant boundary
