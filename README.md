@@ -16,7 +16,7 @@ security of AI-driven software and the tools we hand to AI agents.
   [neonlink](https://github.com/AlexSciFier/neonlink) the maintainer **merged my security-policy
   PR and accepted my private advisory** — third-party validation you can't manufacture.
 
-### What I do → three repos
+### What I do → the repos
 
 - **[security-assessments](https://github.com/Th3Circle-app/security-assessments)** — real
   application-security assessments of live open-source apps: two confirmed SSRFs found → fixed →
@@ -30,6 +30,12 @@ security of AI-driven software and the tools we hand to AI agents.
 - **[redteam-loop](https://github.com/Th3Circle-app/redteam-loop)** — the methodology behind all
   of it: an automated **attack → propose-fix → re-fire-the-exact-attack → verify** loop that
   proves a fix actually closes the hole before a human merges it.
+- **[appsec-rag](https://github.com/Th3Circle-app/appsec-rag) & [langchain-appsec-agent](https://github.com/Th3Circle-app/langchain-appsec-agent)**
+  — that loop turned on my *own* AI tools. Two Python security assistants (a cited RAG and a
+  LangChain agent), red-teamed round after round until two consecutive passes found nothing:
+  **11 rounds, 10 real bugs, each fixed with a regression test**. Findings per round:
+  `2 → 4 → 1 → 1 → 0 → 1 → 0 → 1 → 1 → 0 → 0`. The middle rounds mattered most — they caught the
+  false-positives, the bugs that don't crash and pass a casual test run, they just quietly lie.
 
 ### See it run
 
